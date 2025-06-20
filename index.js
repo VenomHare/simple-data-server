@@ -127,6 +127,7 @@ const TODOS = [
   { "task": "Vacuum the living room", "completed": false }
 ]
 
+const crypto = require("crypto");
 
 function getRandomValue(start, end) {
   const range = end - start + 1;
