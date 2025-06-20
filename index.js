@@ -155,7 +155,10 @@ app.get("/questions", (req, res) => {
 
   const randomAmount = getRandomValue(1, QUESTIONS_DATA.length - 1);
   for (let i = 0; i < randomAmount; i++) {
-    questions.push(QUESTIONS_DATA[getRandomValue(0, QUESTIONS_DATA.length)])
+    const d = QUESTIONS_DATA[getRandomValue(0, QUESTIONS_DATA.length)]
+    if (d !== null || d !== undefined) {
+      questions.push(d);
+    }
   }
 
   res.json(questions.map(q => q && q));
@@ -167,7 +170,10 @@ app.get("/todos", (req, res) => {
 
   const randomAmount = getRandomValue(1, TODOS.length);
   for (let i = 0; i < randomAmount; i++) {
-    todos.push(TODOS[getRandomValue(0, TODOS.length - 1)]);
+    const t = TODOS[getRandomValue(0, TODOS.length - 1)];
+    if (t !== undefined || t !== null) {
+      todos.push(t);
+    }
   }
 
   res.json(todos.map(q => q && q));
